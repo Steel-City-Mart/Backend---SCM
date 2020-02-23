@@ -138,4 +138,14 @@ app.get("/api/getUsers", (req, res) => {
   });
 });
 
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  // err.status = 404;
+  // res.redirect('/fail');
+  // next(err);
+  res.json({
+    "Description":"API Not Found"
+  });
+});
+
 app.listen(5000, console.log("Server is started"));
