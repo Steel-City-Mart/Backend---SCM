@@ -31,10 +31,3 @@ Added an API to create an user based on json payload.
     /api/createUser
 
 
-```mermaid
-graph LR
-
-Products --> D(Products_Pricings)
-
-
-```
