@@ -4,23 +4,21 @@ const bodyParser= require('body-parser');
 const path =require('path');
 
 
+const app= express();
+
+app.use(bodyParser.json());
+
+
 const users=require('./models/Users.js');
 
 const products=require('./models/Products.js');
 
+const productPricings=require('./models/ProductsPricing.js');
 
+products.hasOne(productPricings, {foreignKey: 'product_id'})
 
+// productPricings.belongsTo(products, {foreignKey: 'product_id'});
 
-
-
-
-
-
-
-
-const app= express();
-
-app.use(bodyParser.json());
 
 app.post("/api/createProduct",(req,res)=>{
 
@@ -91,11 +89,17 @@ app.post("/api/createUser",(req,res)=>{
 });
 
 app.get("/api/getProducts", (req,res) => {
-  products.findAll().then((products) =>{
+  products.findAll({include:[productPricings], required: true}).then((products) =>{
     res.json(products);
   })
 });
 
+
+// app.get("/api/getProductsPricing", (req,res) => {
+//   productPricings.findAll().then((products) =>{
+//     res.json(products);
+//   })
+// });
 
 app.get("/api/getUsers", (req,res) => {
   users.findAll().then((users) =>{
