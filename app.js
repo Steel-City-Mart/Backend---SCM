@@ -89,7 +89,7 @@ app.post("/api/createUser",(req,res)=>{
 });
 
 app.get("/api/getProducts", (req,res) => {
-  products.findAll({include:[productPricings], required: true}).then((products) =>{
+  products.findAll({include:[productPricings], required: true,  raw: true}).then((products) =>{
     res.json(products);
   })
 });
