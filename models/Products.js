@@ -15,6 +15,11 @@ module.exports=sequelize.define('product',{
   }
   ,
 
+  created_by:{
+    field:'created_by',
+    type: Sequelize.INTEGER
+  },
+
   description:{
     field:'description',
     type:Sequelize.STRING
@@ -100,12 +105,68 @@ module.exports=sequelize.define('product',{
   status:{
     field:'status',
     type:Sequelize.STRING
-  }
+  },
+  img_src:{
+     field:'img_src',
+    type:Sequelize.STRING
+},
+start_date:{
+  field:'start_date',
+  
+    type:Sequelize.DATE
 
 },
-
-
-{
-  timestamps:false
+end_date:{
+  field:'end_date',
+    
+    type:Sequelize.DATE
+  
+},
+ xc_01:{
+     field:'xc_01',
+    type:Sequelize.STRING
+},
+ xc_02:{
+     field:'xc_02',
+    type:Sequelize.STRING
+},
+ xc_03:{
+     field:'xc_03',
+    type:Sequelize.STRING
+},
+ xc_04:{
+     field:'xc_04',
+    type:Sequelize.STRING
+},
+ xc_05:{
+     field:'xc_05',
+    type:Sequelize.STRING
+},
+ xc_06:{
+     field:'xc_06',
+    type:Sequelize.STRING
+},
+ xc_07:{
+     field:'xc_07',
+    type:Sequelize.STRING
+},
+ xc_08:{
+     field:'xc_08',
+    type:Sequelize.STRING
+},
+ xc_09:{
+     field:'xc_09',
+    type:Sequelize.STRING
+},
+ xc_10:{
+     field:'xc_10',
+    type:Sequelize.STRING
 }
+
+
+
+}
+
+
+
 );
