@@ -18,11 +18,49 @@ products.hasOne(productPricings, { foreignKey: "product_id" });
 // productPricings.belongsTo(products, {foreignKey: 'product_id'});
 
 app.post("/api/createProduct", (req, res) => {
-  console.log(res);
+  //console.log(req);
+  const productPricing= req.body.productPricing;
   products
     .create(productAdapter(req))
     .then(product => {
-      res.json(product);
+
+    // console.log(product);
+
+     console.log(productPricing.base_price);
+
+
+    
+      productPricings.create({
+      product_id: product.UID,
+      base_price: productPricing.base_price,
+      sale_price: productPricing.sale_price,
+      member_price: productPricing.member_price,
+      start_date: productPricing.start_date,
+      end_date:productPricing.end_date,
+      created_by: productPricing.created_by,
+      status: productPricing.status,
+      description: productPricing.description,
+      xc_01: productPricing.xc_01,
+      xc_02: productPricing.xc_02,
+      xc_03: productPricing.xc_03,
+      xc_04: productPricing.xc_04,
+      xc_05: productPricing.xc_05,
+      xc_06: productPricing.xc_06,
+      xc_07: productPricing.xc_07,
+      xc_08: productPricing.xc_08,
+      xc_09: productPricing.xc_09,
+      xc_10: productPricing.xc_10
+
+
+    }).then((productWithPrice)=>{
+
+        let finalProductRes=product;
+
+        finalProductRes.PriceInfo=productWithPrice;
+
+        res.json(finalProductRes);
+
+    })
     });
 });
 
@@ -50,7 +88,7 @@ app.post("/api/createUser", (req, res) => {
     })
     .then(user => {
       res.json(user);
-    });
+    })
 });
 
 app.get("/api/login", (req, res) => {
@@ -96,6 +134,8 @@ app.get("/api/getProducts", (req, res) => {
       res.json(products);
     });
 });
+
+//test
 
 // app.get("/api/getProductsPricing", (req,res) => {
 //   productPricings.findAll().then((products) =>{
