@@ -30,4 +30,7 @@ Added an API to create an user based on json payload.
 
     /api/createUser
 
+### getUserbyId/:ID
+Added an API to get User Details with ID as URL Parameter
 
+    /api/getUserbyId
