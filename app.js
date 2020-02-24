@@ -91,6 +91,8 @@ app.get("/api/getProducts", (req, res) => {
   products
     .findAll({ include: [productPricings], required: true, raw: true })
     .then(products => {
+      res.header('Access-Control-Expose-Headers', 'X-Total-Count');
+      res.set("x-total-count", products.length);
       res.json(products);
     });
 });
@@ -103,6 +105,8 @@ app.get("/api/getProducts", (req, res) => {
 
 app.get("/api/getUsers", (req, res) => {
   users.findAll().then(users => {
+    res.header('Access-Control-Expose-Headers', 'X-Total-Count');
+    res.set("x-total-count", users.length);
     res.json(users);
   });
 });
