@@ -13,7 +13,11 @@ const products = require("./models/Products.js");
 
 const productPricings = require("./models/ProductsPricing.js");
 
+const userLocations=require("./models/UserLocations.js");
+
 products.hasOne(productPricings, { foreignKey: "product_id" });
+
+users.hasMany(userLocations,{foreignKey: "user_id"});
 
 // productPricings.belongsTo(products, {foreignKey: 'product_id'});
 
@@ -57,6 +61,8 @@ app.post("/api/createProduct", (req, res) => {
         let finalProductRes=product;
 
         finalProductRes.PriceInfo=productWithPrice;
+
+        console.log(finalProductRes);
 
         res.json(finalProductRes);
 
@@ -150,6 +156,26 @@ app.get("/api/getUsers", (req, res) => {
     res.json(users);
   });
 });
+
+app.get('/api/getUserDetails/:id',(req,res)=>{
+
+  let {id} =req.params;
+
+  users.findByPk(id,{
+   include: [userLocations], required: true, raw: true 
+
+  }).then((user)=>{
+    if(user){
+      res.json(user);
+    }
+    else
+    {
+      res.status(404).send();
+    }
+  });
+});
+
+
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
