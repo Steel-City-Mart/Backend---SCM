@@ -205,6 +205,8 @@ app.get('/api/getUserDetails/:id',(req,res)=>{
 
 
 app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "34.82.33.87:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   var err = new Error('Not Found');
   // err.status = 404;
   // res.redirect('/fail');
