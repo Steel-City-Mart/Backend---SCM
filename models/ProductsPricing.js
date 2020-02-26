@@ -2,7 +2,7 @@ const sequelize=require('../database/sequelize.js');
 const Sequelize = require('sequelize');
 
 
-module.exports=sequelize.define('product_pricing',{
+module.exports=sequelize.define('Product_pricing',{
   id:{
     field:'id',
     type: Sequelize.INTEGER,

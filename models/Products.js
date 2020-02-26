@@ -2,8 +2,8 @@ const sequelize=require('../database/sequelize.js');
 const Sequelize = require('sequelize');
 
 
-module.exports=sequelize.define('product',{
-  id:{
+module.exports=sequelize.define('Product',{
+  UID:{
     field:'id',
     type: Sequelize.INTEGER,
     primaryKey:true,
