@@ -1,7 +1,7 @@
 const sequelize = require("../database/sequelize.js");
 const Sequelize = require("sequelize");
 
-module.exports = sequelize.define("location", {
+module.exports = sequelize.define("Location", {
   UID: {
     field: "id",
     type: Sequelize.INTEGER,
