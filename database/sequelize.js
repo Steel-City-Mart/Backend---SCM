@@ -5,7 +5,7 @@ const bodyParser= require('body-parser');
 const path =require('path');
 
 // Option 1: Passing parameters separately
-module.exports = new Sequelize('my_mart', 'root', '', {
+module.exports = new Sequelize('scmdb', 'dbusernet', 'password', {
   host: 'localhost',
   dialect: 'mysql'
 });
