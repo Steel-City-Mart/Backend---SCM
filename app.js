@@ -169,6 +169,8 @@ app.get("/api/getProducts", (req, res) => {
       
   res.header("Access-Control-Allow-Origin", "http://34.82.33.87:3000"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Expose-Headers', 'X-Total-Count');
+  res.set("x-total-count", products.length);
       res.json(products);
     });
 });
