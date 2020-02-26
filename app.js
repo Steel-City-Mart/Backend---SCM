@@ -167,7 +167,7 @@ app.get("/api/getProducts", (req, res) => {
     .findAll({ include: [productPricings], required: true, raw: true })
     .then(products => {
       
-  res.header("Access-Control-Allow-Origin", "34.82.33.87:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "http://34.82.33.87:3000"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
       res.json(products);
     });
