@@ -34,3 +34,14 @@ Added an API to create an user based on json payload.
 Added an API to get User Details with ID as URL Parameter
 
     /api/getUserbyId
+    
+### getCategories/:level
+Added an API to get Category Details with Level as URL Parameter
+
+    /api/getCategories/:level
+    
+### addLocation
+Added an API to get Category Details with Level as URL Parameter
+
+    /api/addLocation/
+  
