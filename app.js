@@ -202,6 +202,37 @@ app.get('/api/getUserDetails/:id',(req,res)=>{
   });
 });
 
+//Create Locations by Id
+
+app.post('/api/addLocation/', (req, res) => {
+
+  userLocations
+    .create({
+
+      user_id: req.body.id,
+      add_l1: req.body.add_l1,
+      add_l2: req.body.add_l2,
+      add_l3: req.body.add_l3,
+      pincode: req.body.pincode,
+      gps_value: req.body.gps_value,
+      delivery_contact: req.body.xc_01,
+      status: req.body.status,
+      xc_01: req.body.xc_01,
+      xc_02: req.body.xc_03,
+      xc_03: req.body.xc_03,
+      xc_04: req.body.xc_04,
+      xc_05: req.body.xc_05,
+      xc_06: req.body.xc_06,
+      xc_07: req.body.xc_07,
+      xc_08: req.body.xc_08,
+      xc_09: req.body.xc_09,
+      xc_10: req.body.xc_10
+    })
+    .then(userLocation => {
+      res.json(userLocation);
+    })
+});
+
 
 
 app.use(function(req, res, next) {
